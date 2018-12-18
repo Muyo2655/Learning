@@ -1,0 +1,17 @@
+import random
+
+def magicNumber():
+    randomNumber = random.randint(1, 100)
+    correct = False
+
+    while not correct:
+        userNumber = int(input("Enter a number between 1 and 100: "))
+        if userNumber == randomNumber:
+            print("You have selected the magic number!  Congratulations!")
+            correct = True
+        elif userNumber > randomNumber:
+            print("Guess Lower!")
+        else:
+            print("Guess Higher!")
+
+magicNumber()
