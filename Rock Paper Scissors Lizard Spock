@@ -1,0 +1,61 @@
+import random
+
+def numberName(number):
+    """This function will take a number and convert it to its string value"""
+    if number == 0:
+        return "Rock"
+    elif number == 1:
+        return "Spock"
+    elif number == 2:
+        return "Paper"
+    elif number == 3:
+        return "Lizard"
+    elif number == 4:
+        return "Scissors"
+    else:
+        return "Invalid Number.  Program Error."
+
+def nameNumber(name):
+    """This function converts user choice for results"""
+    if name == "Rock":
+        return 0
+    elif name == "Spock":
+        return 1
+    elif name == "Paper":
+        return 2
+    elif name == "Lizard":
+        return 3
+    elif name == "Scissors":
+        return 4
+    else:
+        return "Invalid Name.  Program Error."
+
+def playAgain():
+    playAgain = input("Would you like to play again? [y]/[n]:")
+    if playAgain == "y":
+        rpsls()
+    else:
+        print("Thank you for playing!")
+
+def rpsls():
+
+    userChoice = input("Would you like to choose Rock Paper Scissors Lizard or Spock?: ")
+    userNumber = nameNumber((userChoice))
+
+    computerNumber = random.randint(0, 4)
+    computerName = numberName(computerNumber)
+
+    result = (userNumber - computerNumber) % 5
+    if result == 1 or result == 2:
+        winner = "You win!"
+    elif result == 3 or result == 4:
+        winner = "You lose!"
+    else:
+        winner = "Nobody wins!"
+
+    print("You chose: %s" % userChoice)
+    print("Computer chose: %s" % computerName)
+    print(winner)
+    playAgain()
+
+rpsls()
